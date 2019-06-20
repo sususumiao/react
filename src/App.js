@@ -1,7 +1,7 @@
 import React, { Fragment, Component } from 'react';
 // 接收store中的数据的一个连接器connect
 import { connect } from "react-redux";
-
+import {NUM_FRUIT_ADD,NUM_FRUIT_SUB} from "./store/actionTypes"
 class PlusButton extends Component {
   render() {
     return (
@@ -38,14 +38,14 @@ const mapDispatch = (dispatch) => {
   return {
     num_add: () => {
       const action = {
-        type: 'num_add',
+        type: NUM_FRUIT_ADD,
         value: 1
       }
       dispatch(action)
     },
     num_substr: () => {
       const action = {
-        type: 'num_substr',
+        type: NUM_FRUIT_SUB,
         value: 1
       }
       dispatch(action)
