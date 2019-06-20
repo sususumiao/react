@@ -32,7 +32,7 @@ class App extends Component {
 // 成就一个数据映射对象
 const mapStaeToProps = (state) => {
   return {
-    num: state.fruitNums
+    num: state.fruitReducer.fruitNums
   }
 }
 const mapDispatch = (dispatch) => {
