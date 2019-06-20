@@ -7,6 +7,8 @@ class App extends Component{
     return(
       <Fragment>
         数据：{this.props.num}
+        <button onClick={this.props.num_add}>+</button>
+        <button onClick={this.props.num_substr}>-</button>
       </Fragment>
     )
   }
@@ -18,4 +20,22 @@ const mapStaeToProps = (state)=>{
     num:state.fruitNums
   }
 }
-export default connect(mapStaeToProps,null)(App);
+const mapDispatch = (dispatch)=>{
+  return{
+    num_add:()=>{
+      const action={
+        type:'num_add',
+        value:1
+      }
+      dispatch(action)
+    },
+    num_substr:()=>{
+      const action={
+        type:'num_substr',
+        value:1
+      }
+      dispatch(action)
+    }
+  }
+}
+export default connect(mapStaeToProps,mapDispatch)(App);
