@@ -2,7 +2,7 @@ import React, { Fragment, Component } from 'react';
 // 接收store中的数据的一个连接器connect
 import { connect } from "react-redux";
 // 引入actio抽离成一个函数
-import {numsFruitAdd,numsFruitSub} from "./store/actionCreator"
+import {numsFruitAdd,numsFruitSub,numsFruitInit} from "./store/actionCreator"
 class PlusButton extends Component {
   render() {
     return (
@@ -18,6 +18,10 @@ class SubstrButton extends Component {
   }
 }
 class App extends Component {
+  // 发起异步请求 页面渲染完毕
+  componentDidMount(){
+    this.props.nums_fruit_init()
+  }
   render() {
     return (
       <Fragment>
@@ -42,6 +46,9 @@ const mapDispatch = (dispatch) => {
     },
     num_substr: () => {
       dispatch(numsFruitSub(1))
+    },
+    nums_fruit_init:()=>{
+      dispatch(numsFruitInit())
     }
   }
 }
